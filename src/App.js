@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import AllMeetups from './pages/AllMeetups';
+import NewMeetup from './pages/NewMeetup';
+import Favorites from './pages/Favorites';
+import Layout from './components/layout/Layout';
+import { FavoritesContextProvider } from './store/favorites-context'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FavoritesContextProvider>
+      <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route index element = {<AllMeetups />} />
+          <Route path ='/New-Meetup' element = {<NewMeetup />} />
+          <Route path = '/Favorites' element = {<Favorites />} />
+        </Routes>
+        </Layout>
+      </BrowserRouter>
+    </FavoritesContextProvider>  
   );
 }
 
