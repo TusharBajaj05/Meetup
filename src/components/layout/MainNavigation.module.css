@@ -33,8 +33,12 @@
   }
   
   .header a:hover,
-  .header a:active,
-  .header a.active {
+  .header a:active
+{
+    color: white;
+  }
+
+  .header a:focus{
     color: white;
   }
   
